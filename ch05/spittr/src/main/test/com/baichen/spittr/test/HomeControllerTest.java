@@ -1,8 +1,12 @@
 package com.baichen.spittr.test;
 
+import com.baichen.spittr.Spittle;
+import com.baichen.spittr.data.SpittleRepository;
 import com.baichen.spittr.web.HomeController;
 import org.junit.Test;
 import org.springframework.test.web.servlet.MockMvc;
+
+import java.util.List;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
