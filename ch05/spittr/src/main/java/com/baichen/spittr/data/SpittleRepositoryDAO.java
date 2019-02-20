@@ -21,4 +21,9 @@ public class SpittleRepositoryDAO implements SpittleRepository {
         }
         return spittles;
     }
+
+    @Override
+    public Spittle findOne(long id) {
+        return new Spittle(Long.toString(id), new Date());
+    }
 }
