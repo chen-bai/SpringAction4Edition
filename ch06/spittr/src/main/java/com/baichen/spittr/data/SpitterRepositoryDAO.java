@@ -23,6 +23,6 @@ public class SpitterRepositoryDAO implements SpitterRepository {
                 return spitter;
             }
         }
-        return new Spitter("The User Does Not Exist!", null, null, null);
+        return new Spitter("The User Does Not Exist!", "", "", "", "");
     }
 }

@@ -26,24 +26,24 @@ public class Spitter {
     @Size(min = 2, max = 30)
     private String lastName;
 
-/*    @NotNull
+    @NotNull
     @Email
-    private String email;*/
+    private String email;
 
     public Spitter() {
     }
 
-    public Spitter(String username, String password, String firstName, String lastName) {
-        this(null, username, password, firstName, lastName);
+    public Spitter(String username, String password, String firstName, String lastName, String email) {
+        this(null, username, password, firstName, lastName, email);
     }
 
-    public Spitter(Long id, String username, String password, String firstName, String lastName) {
+    public Spitter(Long id, String username, String password, String firstName, String lastName, String email) {
         this.id = id;
         this.username = username;
         this.password = password;
         this.firstName = firstName;
         this.lastName = lastName;
-        //this.email = email;
+        this.email = email;
     }
 
     public Long getId() {
@@ -86,21 +86,21 @@ public class Spitter {
         this.lastName = lastName;
     }
 
- /*   public String getEmail() {
+    public String getEmail() {
         return email;
     }
 
     public void setEmail(String email) {
         this.email = email;
-    }*/
+    }
 
     @Override
     public boolean equals(Object that) {
-        return EqualsBuilder.reflectionEquals(this, that, "firstName", "lastName", "username", "password");
+        return EqualsBuilder.reflectionEquals(this, that, "firstName", "lastName", "username", "password", "email");
     }
 
     @Override
     public int hashCode() {
-        return HashCodeBuilder.reflectionHashCode(this, "firstName", "lastName", "username", "password");
+        return HashCodeBuilder.reflectionHashCode(this, "firstName", "lastName", "username", "password", "email");
     }
 }

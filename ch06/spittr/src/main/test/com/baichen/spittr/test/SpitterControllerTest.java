@@ -18,7 +18,7 @@ public class SpitterControllerTest {
     public void shouldShowRegistration() throws Exception {
         SpitterRepository mockRepository = mock(SpitterRepository.class);
         SpitterController controller = new SpitterController(mockRepository);
-        MockMvc mockMvc =standaloneSetup(controller).build();
+        MockMvc mockMvc = standaloneSetup(controller).build();
 
         mockMvc.perform(get("/spitter/register"))
                 .andExpect(view().name("registerForm"));
@@ -27,8 +27,8 @@ public class SpitterControllerTest {
     @Test
     public void shouldProcessRegistration() throws Exception {
         SpitterRepository mockRepository = mock(SpitterRepository.class);
-        Spitter unsaved = new Spitter("jbauer", "24hours", "Jack", "Bauer");
-        Spitter saved = new Spitter(24L, "jbauer", "24hours", "Jack", "Bauer");
+        Spitter unsaved = new Spitter("jbauer", "24hours", "Jack", "Bauer", "jackbauer@example.com");
+        Spitter saved = new Spitter(24L, "jbauer", "24hours", "Jack", "Bauer", "jackbauer@example.com");
         when(mockRepository.save(unsaved)).thenReturn(saved);
 
         SpitterController controller = new SpitterController(mockRepository);
@@ -38,7 +38,8 @@ public class SpitterControllerTest {
                 .param("firstName", "Jack")
                 .param("lastName", "Bauer")
                 .param("username", "jbauer")
-                .param("password", "24hours"))
+                .param("password", "24hours")
+                .param("email", "jackbauer@example.com"))
                 .andExpect(redirectedUrl("/spitter/jbauer"));
         verify(mockRepository, atLeastOnce()).save(unsaved);
     }
