@@ -12,8 +12,8 @@
 <h1>Register</h1>
 
 <sf:form method="POST" commandName="spitter">
-    First Name: <sf:input path="firstName"/>
-    <sf:errors path="firstName" /><br/>
+    <sf:errors path="*" element="div" cssClass="errors" />
+    First Name: <sf:input path="firstName"/><br/>
     Last Name: <sf:input path="lastName"/><br/>
     Email: <sf:input path="email"/><br/>
     Username: <sf:input path="username"/><br/>
