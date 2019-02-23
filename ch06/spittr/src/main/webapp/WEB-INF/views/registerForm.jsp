@@ -12,9 +12,10 @@
 <h1>Register</h1>
 
 <sf:form method="POST" commandName="spitter">
-    <%--<sf:errors path="*" element="div" cssClass="errors" />--%>
-    <sf:label path="firstName" cssErrorClass="error">First Name:</sf:label>
-    <sf:input path="firstName" cssErrorClass="error"/><br/>
+    <sf:errors path="*" element="div" cssClass="errors" />
+    <%--<sf:label path="firstName" cssErrorClass="error">First Name:</sf:label>
+    <sf:input path="firstName" cssErrorClass="error"/><br/>--%>
+    First Name: <sf:input path="firstName"/><br/>
     Last Name: <sf:input path="lastName"/><br/>
     Email: <sf:input path="email"/><br/>
     Username: <sf:input path="username"/><br/>
