@@ -1,8 +1,10 @@
 package com.baichen.spittr.config;
 
+import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
@@ -25,5 +27,13 @@ public class WebConfig extends WebMvcConfigurerAdapter {
     @Override
     public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
         configurer.enable(); //要求DispatcherServlet将对静态资源的请求转发到Servlet容器中默认的Servlet上，不使用DispatcherServlet本身处理此类请求
+    }
+
+    @Bean
+    public MessageSource messageSource() {
+        ReloadableResourceBundleMessageSource messageSource = new ReloadableResourceBundleMessageSource();
+        messageSource.setBasename("file:///Users/chenbai/Downloads/SpringInAction/properties/ch06/messages");
+        messageSource.setCacheSeconds(10);
+        return messageSource;
     }
 }
