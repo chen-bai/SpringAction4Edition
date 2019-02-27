@@ -9,7 +9,8 @@
 <body>
 <h1><s:message code="spitter.welcome" text="Welcome"/></h1>
 
+<s:url value="/spitter/register" var="registerUrl"/>
 <a href="<c:url value="/spittles" />">Spittles</a> |
-<a href="<c:url value="/spitter/register" />">Register</a>
+<a href="${registerUrl}" />Register</a>
 </body>
 </html>
